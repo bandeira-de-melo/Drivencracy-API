@@ -7,7 +7,6 @@ export function validatePoll(req, res, next){
 
     if(!expireAt) expireAt = (dayjs().add(1, 'months').format("YYYY-MM-DD HH:mm:ss"))
 
-    res.locals.pollPost = {title, expireAt}
     
     next()
 }
