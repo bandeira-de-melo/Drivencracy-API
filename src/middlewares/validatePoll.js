@@ -6,5 +6,8 @@ export function validatePoll(req, res, next){
     if(!title) return res.status(422).send("Title cannot be an empty string.")
 
     if(!expireAt) expireAt = (dayjs().add(1, 'months').format("YYYY-MM-DD HH:mm:ss"))
-    res.send(expireAt)
+
+    res.locals.pollPost = {title, expireAt}
+    
+    next()
 }
