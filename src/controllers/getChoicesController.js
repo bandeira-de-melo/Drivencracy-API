@@ -2,7 +2,7 @@ import { ObjectId } from "mongodb"
 import { choicesCollection } from "../database/database.js"
 
 const getChoicesController = async (req, res)=>{
-    const pollId = res.locals.pollId
+    const pollId = res.locals.id
     try {
         const choicesByPollId = await choicesCollection.find({pollId: ObjectId(pollId)}).toArray()
         if(!choicesByPollId) return res.status(404)
