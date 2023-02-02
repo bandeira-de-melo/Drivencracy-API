@@ -18,4 +18,6 @@ router.get("/poll", pollGetController)
 router.post("/choice", validateChoice, validateSchema(choiceSchema), choicePostController)
 router.get("/poll/:id/choice", validateParams, getChoicesController)
 
+router.post("/choice/:id/vote", )
+
 export default router
