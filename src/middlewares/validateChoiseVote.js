@@ -12,7 +12,7 @@ const validateChoiceVote = async (req, res, next)=>{
 
         const poll= await pollsCollection.findOne({_id: ObjectId(choice.pollId)})
         if(dayjs().format("YYYY-MM-DD HH:mm").toString().isAfter(poll.expireAt)) res.status(403).send("The poll limit date has expired.")
-        //utilizar diff do dayjs pra comparar datas
+        
         
         
         res.locals.choice = choice
